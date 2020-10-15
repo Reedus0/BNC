@@ -1,0 +1,291 @@
+﻿{% extends 'index/template.html' %}
+
+{% load static %}
+
+{% block content %}
+
+<style>
+    #mainContent ul li {
+      transition: all .5s ease-in-out;
+      transform: translate3d(60px, 0, 0);
+    }
+
+    #mainContent ul li.active {
+      transform: translate3d(0px, 0, 0);
+    }
+</style>
+
+<!-- Карусель -->
+<div id="carousel" class="carousel slide text-center" data-ride="carousel" >
+  <div class="carousel-inner">
+      <div class="carousel-item active">
+          <a href="expert/1"> <img class="d-block w-100" src="{% static 'images/Stroitel-no-tehnicheskaya-e-kspertiza.jpg' %}" alt="Первый слайд" width="800" height="600"></a>
+        <div class="carousel-caption d-none d-md-block">
+          <h1 class="text-left">Строительно-техническая экспертиза</h1>
+          <h2 class="text-left">От 5 000р</h2>
+        </div>
+      </div>
+      <div class="carousel-item">
+          <a href="expert/2"> <img class="d-block w-100" src="{% static 'images/unnamed_mYzuxqI.jpg' %}" alt="Второй слайд" width="800" height="600"></a>
+          <div class="carousel-caption d-none d-md-block">
+            <h1 class="text-left">Компьютерно-Техническая экспертиза</h1>
+            <h2 class="text-left">От 5 000р</h2>
+          </div>
+      </div>
+  </div>
+  <a class="carousel-control-prev dark" href="#carousel" role="button" data-slide="prev">
+    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+    <span class="sr-only">Previous</span>
+  </a>
+  <a class="carousel-control-next" href="#carousel" role="button" data-slide="next">
+    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+    <span class="sr-only">Next</span>
+  </a>
+</div>
+<p></p>
+<!-- НЕЗАВИСИМАЯ СУДЕБНАЯ И ДОСУДЕБНАЯ ЭКСПЕРТИЗА В КРАСНОДАРЕ И КРАСНОДАРСКОМ КРАЕ -->
+<br>
+<div class="container">
+  <div class="row">
+    <div class="col-md-12">
+      <h2 class="text-center animate__animated animate__fadeIn" >НЕЗАВИСИМАЯ СУДЕБНАЯ И ДОСУДЕБНАЯ ЭКСПЕРТИЗА В КРАСНОДАРЕ И КРАСНОДАРСКОМ КРАЕ</h2>
+      <br>
+      <div id="mainContent">
+        <ul id="myList" type="None">
+          <li><h5>Экспертиза в ООО "Бюро независимых судебных экспертиз" - это всегда качественно и быстро!</h5></li>
+          <li><h5>ООО «Бюро независимых судебных экспертиз», создано с целью содействия судебным и правоохранительным</h5></li>
+          <li><h5>органам, защиты прав и свобод граждан Российской Федерации, интересов государства и хозяйствующих</h5></li>
+          <li><h5>субъектов посредством проведения объективных научно обоснованных внесудебных и судебных экспертных</h5></li>
+          <li><h5>исследований.</h5></li>
+          <br>
+          <li><h5>Одним из основным видом деятельности экспертного Бюро является осуществление экспертных</h5></li>
+          <li><h5>исследований: строительно-технических, землеустроительных, товароведческих, оценочных и</h5></li>
+          <li><h5>почерковедческих экспертиз.</h5></li>
+          <br>
+          <hr>
+        </ul>
+        <h2 class="text-center">ОТЗЫВЫ</h2>
+        <br>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Отзывы -->
+<div class="bg-dark">
+  <br>
+  <div class="container">
+    <div class="row">
+        {% for review in object_list reversed %}
+          {% if forloop.counter <= 3 %}
+            <div class="col-md-4">
+              <div class="card">
+                {% if review.type == 'Строительно-Техническая' %}
+                <img src="{% static 'images/Stroitel-no-tehnicheskaya-e-kspertiza.jpg' %}" class="card-img-top" height="160">
+                {% elif review.type == 'Компьютерно-Техническая' %}
+                <img src="{% static 'images/unnamed_mYzuxqI.jpg' %}" class="card-img-top" height="160">
+                {% endif %}
+                <div class="card-body">
+                  <h4 class="card-title text-center">{{ review.name }}</h4>
+                  <h5 class="card-title text-center">{{ review.type }} экспертиза</h5>
+                  <p class="card-text">{{ review.review }}</p>
+                </div>
+              </div>
+            </div>
+        {% endif %}
+      {% empty %}
+      <div class="col-md4">
+      </div>
+      <div class="col-md4">
+        <h5 class="text-center text-light">Пока-что отзывов нет...</h5>
+      </div>
+      <br><br><br><br><br><br><br><br><br><br><br><br>
+      {% endfor %}
+    </div>
+  </div>
+  <br>
+</div>
+
+<div class="collapse" id="collapseExample">
+  <div class="bg-dark">
+    <br>
+    <div class="container">
+      <div class="row">
+        {% for review in object_list %}
+          {% if forloop.counter <= 3 %}
+            <div class="col-md-4">
+              <div class="card">
+                {% if review.type == 'Строительно-Техническая' %}
+                <img src="{% static 'images/Stroitel-no-tehnicheskaya-e-kspertiza.jpg' %}" class="card-img-top" height="160">
+                {% elif review.type == 'Компьютерно-Техническая' %}
+                <img src="{% static 'images/unnamed_mYzuxqI.jpg' %}" class="card-img-top" height="160">
+                {% endif %}
+                <div class="card-body">
+                  <h4 class="card-title text-center">{{ review.name }}</h4>
+                  <h5 class="card-title text-center">{{ review.type }} экспертиза</h5>
+                  <p class="card-text">{{ review.review }}</p>
+                </div>
+              </div>
+            </div>
+        {% endif %}
+      {% empty %}
+        {% endfor %}
+      </div>
+    </div>
+    <br>
+  </div>
+</div>
+
+
+
+<!-- Добавить когда будет 6 отзывов
+<div class="bg-dark">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-4">
+      </div>
+      <div class="col-md-4">
+        <div class="text-center">
+          <button class="btn btn-link" data-toggle="collapse" data-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample"><h7 class="text-center">Еще</h7></button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <br>
+</div>
+-->
+
+<!-- Остальное -->
+<div class="container">
+  <br>
+  <div class="row">
+    <div class="col-md-4">
+    </div>
+    <div class="col-md-4">
+      <div class="text-center">
+        <h7>Все отзывы модерируются</h7>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+<div class="container">
+  <br>
+  <a href="/review/" class="btn btn-block btn-outline-dark">Оставить отзыв</a>
+</div>
+
+<br>
+<br>
+
+<div class="container" id="mainContent">
+  <div class="row">
+    <div class="col-md-12">
+        <h2 class="text-center">ПРОВЕДЕНИЕ СУДЕБНОЙ ЭКСПЕРТИЗЫ</h2>
+        <br>
+        <ul id="mylist" type="None">
+          <li><h5>Судебная экспертиза в ООО "Бюро независимых судебных экспертиз" - это профессиональное экспертное,</h5></li>
+          <li><h5>экспертных услуг в самых различных отраслях деятельности. Наши эксперты, специалисты, кадастровые</h5></li>
+          <li><h5>оценочное и землеустроительное учреждение, предлагающая своим заказчикам и клиентам полный спектр</h5></li>
+          <li><h5>инженеры и юристы имеют большой практический опыт в проведении исследовательских,</h5></li>
+          <li><h5>экспериментальных, землеустроительных и кадастровых работ. Использование новейшего оборудования,</h5></li>
+          <li><h5>приборов и программных продуктов значительно повышает эффективность работы экспертов и специалистов.</h5></li>
+          <li><h5>Профессиональный подход, независимость, объективность и следование самым строгим стандартам - залог</h5></li>
+          <li><h5>высокого качества и безупречности наших экспертных заключений и выполненных работ.</h5></li>
+          <br>
+          <hr>
+        </ul>
+        <h2 class="text-center">ЭКСПЕРТИЗА В КРАСНОДАРЕ И КРАСНОДАРСКОМ КРАЕ</h2>
+        <br>
+        <ul id="mylist" type="None">
+          <li><h5>Экспертная организация проводит экспертизы и оценочные мероприятия не только на территории</h5></li>
+          <li><h5>Краснодарского края, а так же на всей территории Российской Федерации и Республики Крым. Уточнить</h5></li>
+          <li><h5>географию нашего обслуживания Вы всегда можете по любому из указанных телефонов.</h5></li>
+          <br>
+          <li><h5>Экспертное учреждение оказывает услуги по проведению внесудебных исследований по обращению граждан,</h5></li>
+          <li><h5>в области строительно-технических экспертиз - технические заключения на соответствие требованиям</h5></li>
+          <li><h5>Строительных норм и правил, перепланировок и вновь возведенных строений, пригодности для постоянного</h5></li>
+          <li><h5>проживания, определения порядка пользования земельным участком и помещениями, раздела жилого дома,</h5></li>
+          <li><h5>обследование не несущих и несущих конструкций. В области оценочных исследований - оценка имущества,</h5></li>
+          <li><h5>бизнеса, автотранспортных средств, ущерба. В области почерковедческих экспертиз - технико-</h5></li>
+          <li><h5>криминалистическая экспертиза документа, экспертиза почерка. Подробную информацию о возможности</h5></li>
+          <li><h5>проведения того или иного экспертного исследования можно уточнить связавшись со специалистами Бюро.</h5></li>
+          <br>
+          <hr>
+        </ul>
+        <h2 class="text-center">НЕЗАВИСИМАЯ ЭКСПЕРТНАЯ ОРГАНИЗАЦИЯ.</h2>
+        <br>
+        <ul id="mylist" type="None">
+          <li><h5>В соответствии со ст. 41 федерального закона от 31.05.2001г. №73-ФЗ «О государственной судебно-экспертной</h5></li>
+          <li><h5>деятельности в Российской Федерации», судебные экспертизы могут проводить не только государственные</h5></li>
+          <li><h5>экспертные учреждения, но и негосударственные экспертные организации, заключения которых имеют</h5></li>
+          <li><h5>равную юридическую силу. Преимуществом последних является ускоренное время проведения экспертизы и</h5></li>
+          <li><h5>ее стоимость.</h5></li>
+          <br>
+          <li><h5>Подробнее узнать цены на экспертные услуги Вы можете в разделе <a href="/services">Экспертизы</a></h5></li>
+          <li><h5></h5></li>
+          <li><h5></h5></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+</div>
+
+<script>
+    var isScrolling = false;
+
+    window.addEventListener("scroll", throttleScroll, false);
+
+    function throttleScroll(e) {
+      if (isScrolling == false) {
+        window.requestAnimationFrame(function() {
+          scrolling(e);
+          isScrolling = false;
+        });
+      }
+      isScrolling = true;
+    }
+
+    document.addEventListener("DOMContentLoaded", scrolling, false);
+
+    var listItems = document.querySelectorAll("#mainContent ul li");
+
+    function scrolling(e) {
+
+
+      for (var i = 0; i < listItems.length; i++) {
+        var listItem = listItems[i];
+
+        if (isPartiallyVisible(listItem)) {
+          listItem.classList.add("active");
+        } else {
+          listItem.classList.remove("active");
+        }
+      }
+    }
+
+    function isPartiallyVisible(el) {
+      var elementBoundary = el.getBoundingClientRect();
+
+      var top = elementBoundary.top;
+      var bottom = elementBoundary.bottom;
+      var height = elementBoundary.height;
+
+      return ((top + height >= 0) && (height + window.innerHeight >= bottom));
+    }
+
+    function isFullyVisible(el) {
+      var elementBoundary = el.getBoundingClientRect();
+
+      var top = elementBoundary.top;
+      var bottom = elementBoundary.bottom;
+
+
+    }
+</script>
+
+
+
+{% endblock %}

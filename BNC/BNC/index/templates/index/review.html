@@ -1,0 +1,62 @@
+﻿{% extends 'index/template.html' %}
+
+{% load static %}
+
+{% block content %}
+
+<div class="container">
+    <div class="row">
+        {% csrf_token %}
+        <div class="col-md-4">
+        </div>
+        <div class="col-md-4">
+            <form action="" method="post">
+                <br>
+            <h7 class="text-right">Ваше Ф.И</h7>
+                {% csrf_token %}
+            <p><input class="form-control form-control-sm" type="text" name="name" maxlength="30" required="" id="id_name"></p>
+        </div>
+        <div class="col-md-4">
+        </div>
+        <div class="col-md-4">
+        </div>
+        <div class="col-md-4">
+            <h7 class="text-right">Тип вашей экспертизы</h7>
+            {% csrf_token %}
+            <select class="form-control form-control-sm" type="text" name="type" maxlength="50" required="" id="id_type" value="">
+                <option>Строительно-Техническая</option>
+                <option>Компьютерно-Техническая</option>
+            </select>
+        </div>
+        <div class="col-md-4">
+        </div>
+        <div class="col-md-4">
+        </div>
+        <div class="col-md-4">
+            <br>
+            <h7 class="text-right">Ваш отзыв</h7>
+            {% csrf_token %}
+            <textarea class="form-control form-control-sm" name="review" cols="40" rows="10" required="" id="id_review" style="height: 15em;"></textarea>
+        </div>
+            <div class="col-md-4">
+            </div>
+            <div class="col-md-4">
+            </div>
+            <div class="col-md-4">
+                <br>
+                <a class="btn btn-light" onclick="javascript:history.back(); return false;">Назад</a>
+                <input class="btn btn-light" type="submit" id="button" data-toggle="collapse" data-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample" value="Отправить">
+            </div>
+            </form>
+        </div>
+    <br>
+    <div class="collapse" id="collapseExample">
+        <div class="alert alert-primary" role="alert">
+      Ваш отзыв отправлен
+        </div>
+    </div>
+    </div>
+</div>
+
+
+{% endblock %}

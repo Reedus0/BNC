@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<html>
+    <head>
+        {% load static %}
+        <title>Бюро независимых судебных экспертиз</title>
+        <link rel="shortcut icon" href="{% static '/images/logo.ico' %}" type="image/x-icon">
+        <link rel="stylesheet" href="{% static 'Bootstrap/css/bootstrap.min.css' %}" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.0.0/animate.min.css">
+    </head>
+    <body class="">
+        <!-- Bootstrap -->
+        <nav class="navbar navbar-light bg-light ">
+            <div class="container ">
+                <!-- Навбар -->
+                    <div class="col-md-3">
+                        <a class="navbar-brand" href="/"><img src="{% static 'images/logo2.png' %}" width="275" height="80"></a><!-- Тут должен быть логотип -->
+                    </div>
+                    <div class="col-md-1">
+                        <a href="/services">Экспертизы</a>
+                    </div>
+                    <div class="col-md-1">
+                        <a href="/work"><h7 class="text-right">Вакансии</h7></a>
+                    </div>
+                    <div class="col-md-1">
+                        <a href="/experts">Эксперты</a>
+                    </div>
+                    <div class="col-md-1">
+                        <a href="/contacts">Контакты</a>
+                    </div>
+                    <div class="col-md-1">
+                        <a href="/about">О нас</a>
+                    </div>
+                    <div class="col-md-3">
+                        <h5 class="text-right"><img src="{% static 'images/phone.png' %}" width="35" height="35"> 8 (918) 432 80 70</h5><span></span>
+                    </div>
+            </div>
+            <br>
+        </nav>
+        {% block content %}
+        {% endblock %}
+        <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+        <script src="{% static 'Bootstrap\js\bootstrap.js' %}"></script>
+
+
+        <br>
+        <footer class="">
+            <p class="bg-light"></p>
+            <h6 class="text-center">©2011-2020. ООО "Бюро независимых судебных экспертиз"</h6>
+            <p></p>
+        </footer>
+    </body>
+</html>
